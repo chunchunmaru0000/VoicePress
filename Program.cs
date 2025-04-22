@@ -1,6 +1,6 @@
 ﻿using NAudio.Wave;
 using System;
-using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text.Json;
@@ -95,36 +95,20 @@ namespace VoicePress
             keybd_event(key, 0, (uint)KeyState.UP, 0);
         }
 
-        private static Dictionary<string, Key> KeyCommands { get; set; } = new Dictionary<string, Key>() {
-            { "ноль", Key.ZERO },
-            { "один", Key.ONE },
-            { "два", Key.TWO },
-            { "три", Key.THREE },
-            { "четыре", Key.FOUR },
-            { "пять", Key.FIFE },
-            { "шесь", Key.SIX },
-            { "семь", Key.SEVEN },
-            { "восемь", Key.EIGHT },
-            { "девять", Key.NINE },
+        private static void Click(Point point)
+        {
 
-            { "центр", Key.SPACE },
-            { "энтер", Key.SPACE },
-            { "пробел", Key.SPACE },
-
-            { "текст", Key.L },
-            { "история", Key.L },
-            { "лог", Key.L },
-
-            { "выход", Key.ESC },
-            { "выйти", Key.ESC },
-        };
+        }
 
         private static void TryTextOnCommands(string text)
         {
             string[] words = text.ToLower().Split(' ');
             foreach(string word in words) {
-                if (KeyCommands.ContainsKey(word))
-                    PressKey(KeyCommands[word]);
+                if (Commands.Keys.ContainsKey(word))
+                    PressKey(Commands.Keys[word]);
+                if (word == "мышь") {
+                    //Click();
+                }
             }
         }
     }

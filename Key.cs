@@ -18,11 +18,6 @@
         NINE = 0x39,
     }
 
-    public enum Click
-    {
-
-    }
-
     public enum KeyState
     {
         DOWN = 0,
